@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!--    <MdEditor :value="value" :handle-change="Onchange" />-->
-    <code-editor :value="value" :handle-change="Onchange"></code-editor>
+    <!--    <code-editor :value="value" :handle-change="Onchange"></code-editor>-->
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
   </div>

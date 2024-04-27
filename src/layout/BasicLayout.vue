@@ -1,5 +1,5 @@
 <template>
-  <div id="basicLayout">
+  <div id="BasicLayout">
     <a-layout style="height: 400px">
       <a-layout-header class="header">
         <GlobalHeader />
@@ -13,20 +13,20 @@
 </template>
 
 <style scoped>
-#basicLayout {
+#BasicLayout {
 }
 
-#basicLayout .header {
+#BasicLayout .header {
   margin-bottom: 16px;
   box-shadow: #eee 1px 1px 5px;
 }
 
-#basicLayout .content {
+#BasicLayout .content {
   margin-left: 16px;
   margin-bottom: 16px;
 }
 
-#basicLayout .footer {
+#BasicLayout .footer {
   padding: 16px;
   position: sticky;
   bottom: 0;

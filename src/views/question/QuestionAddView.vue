@@ -124,9 +124,6 @@
         <a-button type="primary" style="min-width: 200px" html-type="submit"
           >提交
         </a-button>
-        <a-button @click="printans" type="outline" status="success"
-          >打印题解值
-        </a-button>
       </a-form-item>
     </a-form>
   </div>

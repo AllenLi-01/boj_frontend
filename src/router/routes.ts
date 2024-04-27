@@ -9,6 +9,8 @@ import UserRegisterView from "@/views/user/UserRegisterView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
 import QuestionAddView from "@/views/question/QuestionAddView.vue";
 import QuestionManageView from "@/views/question/QuestionManageView.vue";
+import QuestionsView from "@/views/question/QuestionsView.vue";
+import QuestionsSubmitView from "@/views/question/QuestionsSubmitView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -33,8 +35,25 @@ export const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/",
-    name: "浏览题目",
-    component: HomeView,
+    redirect: "/questions",
+    meta: {
+      hide: true,
+    },
+  },
+  {
+    path: "/questions",
+    name: "题库",
+    component: QuestionsView,
+  },
+  {
+    path: "/question/:id",
+    name: "题目详情",
+    component: QuestionsSubmitView,
+    props: true,
+    meta: {
+      access: ACCESS_ENUM.USER,
+      hide: true,
+    },
   },
   {
     path: "/add/question",
@@ -69,13 +88,7 @@ export const routes: Array<RouteRecordRaw> = [
       hide: true,
     },
   },
-  {
-    path: "/404",
-    component: NotFoundView,
-    meta: {
-      hide: true,
-    },
-  },
+
   {
     path: "/admin",
     name: "管理",
@@ -92,7 +105,7 @@ export const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
-    path: "/:catchAll(.*)",
+    path: "/:catchAll(.*)*",
     redirect: "/404",
     meta: {
       hide: true,

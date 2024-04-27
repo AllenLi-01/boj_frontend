@@ -14,13 +14,15 @@
       @page-change="onPageChange"
     >
       <template #tags="{ record }">
-        <a-tag
-          v-for="(tag, index) in JSON.parse(record.tags)"
-          :key="index"
-          :color="colors[index]"
-        >
-          {{ tag }}
-        </a-tag>
+        <a-space wrap>
+          <a-tag
+            v-for="(tag, index) in JSON.parse(record.tags)"
+            :key="index"
+            :color="colors[index]"
+          >
+            {{ tag }}
+          </a-tag>
+        </a-space>
       </template>
       <template #optional="{ record }">
         <a-space>

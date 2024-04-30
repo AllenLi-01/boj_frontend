@@ -67,7 +67,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watchEffect, withDefaults, defineProps } from "vue";
+import {
+  onMounted,
+  ref,
+  watchEffect,
+  withDefaults,
+  defineProps,
+  watch,
+  toRaw,
+} from "vue";
 import message from "@arco-design/web-vue/es/message";
 import CodeEditor from "@/components/CodeEditor.vue";
 import MdViewer from "@/components/MdViewer.vue";
@@ -77,6 +85,7 @@ import {
   QuestionSubmitControllerService,
   QuestionVO,
 } from "../../../generated";
+import codeEditor from "@/components/CodeEditor.vue";
 
 interface Props {
   id: string;

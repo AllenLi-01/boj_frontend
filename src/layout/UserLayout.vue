@@ -1,8 +1,5 @@
 <template>
   <div class="container">
-    <div class="logo">
-      <img alt="logo" src="@/assets/boj.png" width="56" height="56" />
-    </div>
     <div class="content">
       <div class="content-inner">
         <UserLoginView></UserLoginView>

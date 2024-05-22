@@ -123,7 +123,7 @@
 import { reactive, ref } from "vue";
 import { UserControllerService } from "../../../generated";
 import { Message } from "@arco-design/web-vue";
-import { useRoute, useRouter } from "vue-router";
+import { LocationQueryValue, useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 
 const router = useRouter();
@@ -197,7 +197,7 @@ const handleSubmit = async () => {
     if (res.code === 0) {
       await store.dispatch("user/getLoginUser");
       const next = route.query.next || "/";
-      router.push(next);
+      await router.push(next);
     } else {
       Message.error(res.message);
     }

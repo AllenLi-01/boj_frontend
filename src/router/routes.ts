@@ -11,6 +11,9 @@ import QuestionAddView from "@/views/question/QuestionAddView.vue";
 import QuestionManageView from "@/views/question/QuestionManageView.vue";
 import QuestionsView from "@/views/question/QuestionsView.vue";
 import QuestionsSubmitView from "@/views/question/QuestionsSubmitView.vue";
+import IndexView from "@/views/IndexView.vue";
+import DetectView from "@/views/DetectView.vue";
+import VulsView from "@/views/VulsView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -35,51 +38,30 @@ export const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/",
-    redirect: "/questions",
+    redirect: "/home",
     meta: {
       hide: true,
     },
   },
   {
-    path: "/questions",
-    name: "题库",
-    component: QuestionsView,
-  },
-  {
-    path: "/question/:id",
-    name: "题目详情",
-    component: QuestionsSubmitView,
-    props: true,
+    path: "/home",
+    name: "起始页",
+    component: IndexView,
     meta: {
-      access: ACCESS_ENUM.USER,
       hide: true,
     },
   },
   {
-    path: "/add/question",
-    name: "添加题目",
-    component: QuestionAddView,
-    meta: {
-      access: ACCESS_ENUM.ADMIN,
-    },
+    path: "/detect",
+    name: "文件分析",
+    component: DetectView,
   },
   {
-    path: "/manage/question",
-    name: "管理题目",
-    component: QuestionManageView,
-    meta: {
-      access: ACCESS_ENUM.ADMIN,
-    },
+    path: "/vunFun",
+    name: "漏洞函数库",
+    component: VulsView,
   },
-  {
-    path: "/update/question",
-    name: "更新题目",
-    component: QuestionAddView,
-    meta: {
-      access: ACCESS_ENUM.ADMIN,
-      hide: true,
-    },
-  },
+
   {
     path: "/noAuth",
     name: "无权限",
@@ -88,21 +70,10 @@ export const routes: Array<RouteRecordRaw> = [
       hide: true,
     },
   },
-
   {
-    path: "/admin",
-    name: "管理",
-    component: AdminView,
-    meta: {
-      access: ACCESS_ENUM.ADMIN,
-    },
-  },
-  {
-    path: "/about",
-    name: "关于我的",
-
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/history",
+    name: "历史记录",
+    component: VulsView,
   },
   {
     path: "/:catchAll(.*)*",

@@ -1,4 +1,4 @@
-# boj-frontend
+# vulnx-demo
 
 ## Project setup
 ```

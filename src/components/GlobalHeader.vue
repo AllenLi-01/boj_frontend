@@ -12,7 +12,11 @@
           :style="{ padding: 0, marginRight: '38px' }"
         >
           <div class="title-bar" style="cursor: pointer">
-            <img class="logo" src="../assets/boj.png" @click="logoClick" />
+            <img
+              class="logo"
+              src="@/static/image/logo.png"
+              @click="logoClick"
+            />
           </div>
         </a-menu-item>
         <!--   根据路由数组动态生成菜单项     -->
@@ -22,9 +26,22 @@
       </a-menu>
     </a-col>
     <a-col flex="100px">
-      <div>
-        {{ store.state.user?.loginUser?.userName ?? "未登录" }}
-      </div>
+      <!--      <div>-->
+      <!--        {{ store.state.user?.loginUser?.userName ?? "未登录" }}-->
+      <!--      </div>-->
+      <a-dropdown trigger="click">
+        <a-avatar :size="32" :style="{ marginRight: '8px', cursor: 'pointer' }">
+          <img alt="avatar" :src="avatar" />
+        </a-avatar>
+        <template #content>
+          <a-doption>
+            <a-space @click="switchRoles">
+              <icon-tag />
+              <span> 个人中心 </span>
+            </a-space>
+          </a-doption>
+        </template>
+      </a-dropdown>
     </a-col>
   </a-row>
 </template>
@@ -80,6 +97,12 @@ const doManuClick = (key: string) => {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.grid-demo {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
 .title-bar {
   display: flex;
   align-items: center;

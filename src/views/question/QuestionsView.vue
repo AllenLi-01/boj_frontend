@@ -80,14 +80,18 @@ const searchParams = ref<QuestionQueryRequest>({
 });
 
 const loadData = async () => {
-  const res = await QuestionControllerService.listQuestionVoByPageUsingPost(
-    searchParams.value
-  );
-  if (res.code === 0) {
-    dataList.value = res.data.records;
-    total.value = res.data.total;
-  } else {
-    message.error("加载失败，" + res.message);
+  try {
+    const res = await QuestionControllerService.listQuestionVoByPageUsingPost(
+      searchParams.value
+    );
+    if (res.code === 0) {
+      dataList.value = res.data.records;
+      total.value = res.data.total;
+    } else {
+      message.error("加载失败，" + res.message);
+    }
+  } catch (error) {
+    // message.error(error as string);
   }
 };
 
